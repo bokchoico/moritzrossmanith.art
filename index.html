@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en" class="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moritz Rossmanith — Abstract Neon Paintings | Original Art from Ulm, Germany</title>
+<meta name="description" content="Original abstract paintings by German-Australian artist Moritz Rossmanith: explosive neon acrylic and spray paint on canvas. 47 works, painted in Ulm, Germany and Melbourne, Australia.">
+<meta name="author" content="Moritz Rossmanith">
+<meta name="keywords" content="Moritz Rossmanith, abstract art, neon painting, spray paint art, acrylic on canvas, abstract artist Germany, Ulm artist, buy abstract art, UV art, fluorescent painting, art commission">
+<link rel="canonical" href="https://moritzrossmanith.art/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moritzrossmanith.art/">
+<meta property="og:site_name" content="Moritz Rossmanith">
+<meta property="og:title" content="Moritz Rossmanith — Abstract Neon Paintings">
+<meta property="og:description" content="Explosive abstract works in neon acrylic and spray paint on canvas, by German-Australian artist Moritz Rossmanith.">
+<meta property="og:image" content="https://moritzrossmanith.art/art/moritz-rossmanith-sproom.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Moritz Rossmanith — Abstract Neon Paintings">
+<meta name="twitter:description" content="Explosive abstract works in neon acrylic and spray paint on canvas.">
+<meta name="twitter:image" content="https://moritzrossmanith.art/art/moritz-rossmanith-sproom.jpg">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+(function(){
+  var l=localStorage.getItem('lang')||(navigator.language&&navigator.language.slice(0,2)==='de'?'de':'en');
+  document.documentElement.className=l;document.documentElement.lang=l;
+})();
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="mastrow">
+    <h1><a href="index.html">Moritz<br>Rossmanith</a></h1>
+    <nav>
+      <a href="index.html" aria-current="page"><span class="l-en">Work</span><span class="l-de">Arbeiten</span></a>
+      <a href="about.html"><span class="l-en">About</span><span class="l-de">Über</span></a>
+      <button id="langBtn" type="button" aria-label="Sprache wechseln / switch language"></button>
+    </nav>
+  </div>
+  <p class="sub">
+    <span class="l-en">Feelings, painted loud</span>
+    <span class="l-de">Gefühle, laut gemalt</span>
+  </p>
+</header>
+
+<main class="gallery" id="gallery"></main>
+
+<footer>
+  <span>© 2026 Moritz Rossmanith</span>
+  <nav>
+    <a href="https://www.instagram.com/moritzrossmanith" target="_blank" rel="noopener">Instagram</a>
+    <a class="em" href="#"></a>
+    <a href="impressum.html">Impressum</a>
+  </nav>
+  <p class="foot-note">
+    <span class="l-en">In real life the paintings are far more vivid and luminous than any photo can show.</span>
+    <span class="l-de">Im Original sind die Bilder deutlich leuchtender und lebendiger, als Fotos es zeigen können.</span>
+  </p>
+</footer>
+
+<div class="lb" id="lb" aria-modal="true" role="dialog">
+  <button class="prev" aria-label="Previous">←</button>
+  <img alt="">
+  <button class="next" aria-label="Next">→</button>
+  <span id="lbCap"></span>
+</div>
+
+<script>
+// curated order — winners first, colour and format mixed
+const items=[
+ {f:"moritz-rossmanith-sproom",w:1487,h:1800,t:"Sproom",s:"80 × 60",y:2024},
+ {f:"moritz-rossmanith-bright-grids",w:1800,h:1731,t:"Bright Grids",s:"40 × 40",y:2024},
+ {f:"moritz-rossmanith-black-squirt",w:1577,h:1800,t:"Black Squirt",s:"50 × 40",y:2024},
+ {f:"moritz-rossmanith-vaporetto",w:1232,h:1800,t:"Vaporetto — i see the lights · vedo le luci",s:"60 × 40",y:2026},
+ {f:"moritz-rossmanith-explosion",w:1795,h:1800,t:"Explosion",s:"60 × 60",y:2024,m:"spray paint on canvas"},
+ {f:"moritz-rossmanith-fuck-em",w:1800,h:1706,t:"Fuck Em",s:"29 × 29",y:2025},
+ {f:"moritz-rossmanith-whirlpool",w:1532,h:1800,t:"Whirlpool",s:"50 × 40",y:2023},
+ {f:"moritz-rossmanith-neon-burger",w:1382,h:1800,t:"Neon Burger",s:"100 × 75",y:2026},
+ {tile:"about"},
+ {f:"moritz-rossmanith-zing-zoom-ding",w:1800,h:1464,t:"Zing Zoom Ding",s:"110 × 130",y:2025},
+ {f:"moritz-rossmanith-miss-saigon",w:1425,h:1800,t:"Miss Saigon",s:"80 × 60",y:2023},
+ {f:"moritz-rossmanith-beginnings",w:1799,h:1777,t:"Beginnings",s:"61 × 61",y:2024},
+ {f:"moritz-rossmanith-heart-break",w:650,h:1799,t:"Heart-Break",s:"120 × 40",y:2026},
+ {f:"moritz-rossmanith-up",w:1800,h:1582,t:"Up",s:"90 × 90",y:2025},
+ {f:"moritz-rossmanith-skyways",w:1394,h:1800,t:"Skyways",s:"100 × 70",y:2025},
+ {f:"moritz-rossmanith-night-sky",w:1408,h:1800,t:"Night Sky",s:"80 × 60",y:2025},
+ {f:"moritz-rossmanith-ghosts",w:1573,h:1800,t:"Ghosts",s:"70 × 60",y:2026},
+ {tile:"insta"},
+ {f:"moritz-rossmanith-mashup",w:1800,h:1371,t:"Mashup",s:"160 × 200",y:2024},
+ {f:"moritz-rossmanith-enoki",w:1490,h:1800,t:"Enoki",s:"75 × 60",y:2025},
+ {f:"moritz-rossmanith-milky-wayed",w:1800,h:1276,t:"Milky Wayed",s:"90 × 120",y:2024},
+ {f:"moritz-rossmanith-shifted",w:1523,h:1800,t:"Shifted",s:"120 × 100",y:2024},
+ {f:"moritz-rossmanith-elemental",w:1763,h:1800,t:"Elemental",y:2024},
+ {f:"moritz-rossmanith-seaside",w:1791,h:1800,t:"Seaside",s:"40 × 40",y:2024},
+ {f:"moritz-rossmanith-directions",w:1800,h:1752,t:"Directions",s:"40.5 × 41",y:2024},
+ {f:"moritz-rossmanith-possibilities",w:1692,h:1614,t:"Possibilities",s:"30 × 30",y:2023},
+ {f:"moritz-rossmanith-new-horizon",w:1412,h:1608,t:"New Horizon",s:"30 × 25",y:2025},
+ {f:"moritz-rossmanith-golden-beach",w:1771,h:1213,t:"Golden Beach",s:"50 × 40",y:2024},
+ {f:"moritz-rossmanith-sunset-sky",w:1302,h:1800,t:"Sunset Sky",s:"90 × 60",y:2024},
+ {f:"moritz-rossmanith-heaven",w:1800,h:1722,t:"Heaven",s:"50 × 50",y:2023},
+ {f:"moritz-rossmanith-tokyo",w:1517,h:1800,t:"Tokyo",s:"50 × 40",y:2023},
+ {f:"moritz-rossmanith-oma",w:1538,h:1800,t:"Oma",s:"50 × 40",y:2024},
+ {f:"moritz-rossmanith-ambiguous-kiss",w:1569,h:1800,t:"Ambiguous Kiss",s:"50 × 40",y:2024},
+ {f:"moritz-rossmanith-layers",w:1800,h:1638,t:"Layers",s:"40 × 40",y:2024},
+ {f:"moritz-rossmanith-insel",w:1800,h:1669,t:"Insel",s:"40 × 40",y:2023},
+ {f:"moritz-rossmanith-flows",w:1453,h:1800,t:"Flows",s:"40 × 30",y:2023},
+ {f:"moritz-rossmanith-jitters",w:1237,h:1600,t:"Jitters",s:"100 × 70",y:2025},
+ {f:"moritz-rossmanith-octopi",w:1201,h:1800,t:"Octopi",s:"80 × 50",y:2025},
+ {f:"moritz-rossmanith-bloody-tears",w:1452,h:1800,t:"Bloody Tears",s:"70 × 50",y:2024},
+ {f:"moritz-rossmanith-movement",w:1357,h:1800,t:"Movement",s:"80 × 60",y:2023},
+ {f:"moritz-rossmanith-blumenbeet",w:1384,h:1800,t:"Blumenbeet",s:"80 × 60",y:2023},
+ {f:"moritz-rossmanith-white-space-experiments",w:1800,h:1729,t:"White Space Experiments",s:"50 × 50",y:2023},
+ {f:"moritz-rossmanith-pink-sunset",w:1577,h:1468,t:"Pink Sunset",s:"50 × 50",y:2024},
+ {f:"moritz-rossmanith-winter-sunset",w:1620,h:1534,t:"Winter Sunset",s:"40 × 40",y:2023},
+ {f:"moritz-rossmanith-laguna",w:1800,h:1274,t:"Laguna",s:"100 × 140",y:2023},
+ {f:"moritz-rossmanith-red-car",w:1799,h:1507,t:"Red Car",y:2023},
+ {f:"moritz-rossmanith-tagged-team",w:1800,h:1377,t:"Tagged Team",y:2023,m:"spray paint on canvas"},
+ {f:"moritz-rossmanith-galaxy",w:832,h:1800,t:"Galaxy",y:2023,m:"spray paint on canvas"},
+ {f:"moritz-rossmanith-untitled-24x18",w:1410,h:1800,t:"Untitled",s:"24 × 18",y:2023},
+];
+const works=items.filter(x=>!x.tile);
+const isDe=()=>document.documentElement.lang==='de';
+const tt=wk=>wk.t==='Untitled'&&isDe()?'Ohne Titel':wk.t;
+const cap=wk=>`${tt(wk)}${wk.y?', '+wk.y:''}${wk.s?' — '+wk.s+' cm':''}`;
+const altOf=wk=>`${wk.t}${wk.y?' ('+wk.y+')':''} — abstract painting by Moritz Rossmanith, ${wk.m||'neon acrylic and spray paint on canvas'}${wk.s?', '+wk.s.replace(/ × /,'x')+' cm':''}`;
+
+const tiles={
+ about:{href:'about.html',target:'',kicker:{en:'The artist',de:'Der Künstler'},main:{en:'Who is Moritz? The story behind the colour',de:'Wer ist Moritz? Die Geschichte hinter der Farbe'}},
+ insta:{href:'https://www.instagram.com/moritzrossmanith',target:'_blank',kicker:{en:'Instagram',de:'Instagram'},main:{en:'Follow the process — new work & studio moments',de:'Folge dem Prozess — neue Werke & Studio-Momente'}}
+};
+
+const g=document.getElementById('gallery');
+items.forEach(it=>{
+  if(it.tile){
+    const t=tiles[it.tile];
+    const fig=document.createElement('div');
+    fig.className='work tile';
+    fig.dataset.tile=it.tile;
+    fig.innerHTML=`<a href="${t.href}" ${t.target?'target="_blank" rel="noopener"':''}><span class="t-kicker"></span><span class="t-main"></span><span class="t-arrow">→</span></a>`;
+    g.appendChild(fig);
+    return;
+  }
+  const i=works.indexOf(it);
+  const fig=document.createElement('figure');
+  fig.className='work';
+  fig.innerHTML=`<img src="art/${it.f}-s.jpg" width="${it.w}" height="${it.h}" loading="lazy" alt="${altOf(it)}"><figcaption></figcaption>`;
+  fig.addEventListener('click',()=>open(i));
+  g.appendChild(fig);
+});
+function renderText(){
+  const figs=[...g.children];
+  let wi=0;
+  figs.forEach(el=>{
+    if(el.classList.contains('tile')){
+      const t=tiles[el.dataset.tile], l=isDe()?'de':'en';
+      el.querySelector('.t-kicker').textContent=t.kicker[l];
+      el.querySelector('.t-main').textContent=t.main[l];
+    }else{
+      el.querySelector('figcaption').textContent=cap(works[wi++]);
+    }
+  });
+}
+renderText();
+
+// language toggle
+const langBtn=document.getElementById('langBtn');
+function syncLangBtn(){langBtn.textContent=isDe()?'EN':'DE';}
+langBtn.addEventListener('click',()=>{
+  const l=isDe()?'en':'de';
+  document.documentElement.className=l;document.documentElement.lang=l;
+  localStorage.setItem('lang',l);
+  syncLangBtn();renderText();
+  if(lb.classList.contains('open'))show();
+});
+syncLangBtn();
+
+// email (assembled at runtime to keep it away from scrapers)
+document.querySelectorAll('.em').forEach(a=>{
+  const u='info', d=['moritzrossmanith','art'].join('.');
+  a.href='mailto:'+u+String.fromCharCode(64)+d;
+  if(!a.textContent.trim())a.textContent=u+String.fromCharCode(64)+d;
+});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+}),{threshold:.12});
+document.querySelectorAll('.work').forEach(el=>io.observe(el));
+
+// lightbox
+const lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCapEl=document.getElementById('lbCap');
+let cur=0;
+function open(i){cur=i;show();lb.classList.add('open');document.body.style.overflow='hidden';}
+function show(){const wk=works[cur];lbImg.src=`art/${wk.f}.jpg`;lbImg.alt=altOf(wk);lbCapEl.textContent=`${cap(wk)} · ${cur+1} / ${works.length}`;}
+function close(){lb.classList.remove('open');document.body.style.overflow='';}
+function step(d){cur=(cur+d+works.length)%works.length;show();}
+lb.addEventListener('click',e=>{if(!e.target.closest('button'))close();});
+lb.querySelector('.prev').addEventListener('click',()=>step(-1));
+lb.querySelector('.next').addEventListener('click',()=>step(1));
+addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')close();
+  if(e.key==='ArrowLeft')step(-1);
+  if(e.key==='ArrowRight')step(1);
+});
+
+// structured data for search engines
+const ld={
+ "@context":"https://schema.org",
+ "@graph":[
+  {"@type":"WebSite","@id":"https://moritzrossmanith.art/#website","url":"https://moritzrossmanith.art/","name":"Moritz Rossmanith","inLanguage":["en","de"]},
+  {"@type":"Person","@id":"https://moritzrossmanith.art/#artist","name":"Moritz Rossmanith","url":"https://moritzrossmanith.art/","jobTitle":"Abstract Artist","nationality":["German","Australian"],"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Ulm","addressCountry":"DE"}},"sameAs":["https://www.instagram.com/moritzrossmanith","https://bluethumb.com.au/moritz-rossmanith","https://moritzrossmanith.com"]},
+  ...works.map(wk=>({"@type":"VisualArtwork","name":wk.t,"creator":{"@id":"https://moritzrossmanith.art/#artist"},"artMedium":wk.m||"acrylic and spray paint","artform":"Painting","artworkSurface":"canvas","image":"https://moritzrossmanith.art/art/"+wk.f+".jpg",...(wk.y?{"dateCreated":String(wk.y)}:{}),...(wk.s?{"size":wk.s+" cm"}:{})}))
+ ]
+};
+const s=document.createElement('script');s.type='application/ld+json';s.textContent=JSON.stringify(ld);document.head.appendChild(s);
+</script>
+</body>
+</html>
